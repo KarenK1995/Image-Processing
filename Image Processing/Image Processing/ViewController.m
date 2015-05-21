@@ -10,7 +10,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "Cropper.h"
 #import <AssetsLibrary/AssetsLibrary.h>
-#import <Social/Social.h>
+#import <VKSdk/VKSdk.h>
+
 
 @interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDelegate>
 
@@ -32,6 +33,13 @@
     [self createScrollingImageView];
     [self fullScreenGeture];
     [self availableFilterNames];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.bgImage.contentMode = UIViewContentModeScaleAspectFit;
+    [self.buttomView setBackgroundColor:[[UIColor lightGrayColor] colorWithAlphaComponent:0.5]];
+    [self.topView setBackgroundColor:[[UIColor lightGrayColor] colorWithAlphaComponent:0.5]];
 }
 
 - (void)createScrollingImageView {
@@ -124,13 +132,6 @@
     [self presentViewController:imagePicker animated:YES completion:nil];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.bgImage.contentMode = UIViewContentModeScaleAspectFit;
-    [self.buttomView setBackgroundColor:[[UIColor lightGrayColor] colorWithAlphaComponent:0.5]];
-    [self.topView setBackgroundColor:[[UIColor lightGrayColor] colorWithAlphaComponent:0.5]];
-}
-
 - (UIImage *)firstImage {
     UIImage* img = [UIImage imageNamed:@"img.jpg"];
     return img;
@@ -204,22 +205,13 @@
 }
 
 - (IBAction)shareButtonAction:(UIButton *)sender {
-//    SLComposeViewController *fbVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-//    [fbVC setInitialText:@"Hello Facebook"];
-//    [fbVC addURL:[NSURL URLWithString:@"https://developers.facebook.com/ios"]];
-//    [fbVC addImage:[UIImage imageNamed:@"bg.jpg"]];
-//    [self presentViewController:fbVC animated:YES completion:nil];
-    
-    
-//    NSString *text = @"How to add Facebook and Twitter sharing to an iOS app";
-//    NSURL *url = [NSURL URLWithString:@"http://roadfiresoftware.com/2014/02/how-to-add-facebook-and-twitter-sharing-to-an-ios-app/"];
-//    UIImage *image = [UIImage imageNamed:@"twiter.png"];
-//    UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:@[text, url, image] applicationActivities:nil];
-//    [self presentViewController:controller animated:YES completion:nil];
-    
-    NSString *urlString=@"https://itunes.apple.com/us/app/glavhimchistka/id986310493?ls=1&mt=8";
-    NSString *authLink = [NSString stringWithFormat:@"http://vkontakte.ru/share.php?url=%@",urlString];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:authLink]];
+    VKShareDialogController * shareDialog = [VKShareDialogController new];
+    shareDialog.text         = @"This post created using #vksdk #ios";
+    shareDialog.uploadImages = @[[VKUploadImage uploadImageWithImage:[UIImage imageNamed:@"img.jpg"] andParams:nil]];
+    [shareDialog setCompletionHandler:^(VKShareDialogControllerResult result) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [self presentViewController:shareDialog animated:YES completion:nil];
 }
 
 - (IBAction)takePhotoAction:(UIButton *)sender {

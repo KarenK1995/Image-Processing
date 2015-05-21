@@ -25,7 +25,8 @@
 		BACA3B301AFA54670015EF04 /* Image_ProcessingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BACA3B2F1AFA54670015EF04 /* Image_ProcessingTests.m */; };
 		BACA3B3A1AFA57940015EF04 /* img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BACA3B391AFA57940015EF04 /* img.jpg */; };
 		BAE6BCC21B0B0C1A00EC0D8B /* crop.png in Resources */ = {isa = PBXBuildFile; fileRef = BAE6BCC11B0B0C1A00EC0D8B /* crop.png */; };
-		BAE6BCC41B0B150500EC0D8B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE6BCC31B0B150500EC0D8B /* Social.framework */; };
+		BAE6BCD31B0B477D00EC0D8B /* VKSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE6BCD11B0B477D00EC0D8B /* VKSdk.framework */; };
+		BAE6BCD41B0B477D00EC0D8B /* VKSdkResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAE6BCD21B0B477D00EC0D8B /* VKSdkResources.bundle */; };
 		BAE8F14B1AFCA26C003CC33C /* bgImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BAE8F14A1AFCA26C003CC33C /* bgImage.jpeg */; };
 		BAE8F14E1AFCE0F1003CC33C /* Cropper.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE8F14D1AFCE0F1003CC33C /* Cropper.m */; };
 		BAE8F1501AFCE792003CC33C /* crop.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BAE8F14F1AFCE792003CC33C /* crop.jpeg */; };
@@ -67,7 +68,8 @@
 		BACA3B2F1AFA54670015EF04 /* Image_ProcessingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Image_ProcessingTests.m; sourceTree = "<group>"; };
 		BACA3B391AFA57940015EF04 /* img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img.jpg; sourceTree = "<group>"; };
 		BAE6BCC11B0B0C1A00EC0D8B /* crop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crop.png; sourceTree = "<group>"; };
-		BAE6BCC31B0B150500EC0D8B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		BAE6BCD11B0B477D00EC0D8B /* VKSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VKSdk.framework; sourceTree = "<group>"; };
+		BAE6BCD21B0B477D00EC0D8B /* VKSdkResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = VKSdkResources.bundle; sourceTree = "<group>"; };
 		BAE8F14A1AFCA26C003CC33C /* bgImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bgImage.jpeg; sourceTree = "<group>"; };
 		BAE8F14C1AFCE0F1003CC33C /* Cropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cropper.h; sourceTree = "<group>"; };
 		BAE8F14D1AFCE0F1003CC33C /* Cropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cropper.m; sourceTree = "<group>"; };
@@ -81,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAE6BCC41B0B150500EC0D8B /* Social.framework in Frameworks */,
+				BAE6BCD31B0B477D00EC0D8B /* VKSdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +100,8 @@
 		BACA3B071AFA54670015EF04 = {
 			isa = PBXGroup;
 			children = (
-				BAE6BCC31B0B150500EC0D8B /* Social.framework */,
+				BAE6BCD11B0B477D00EC0D8B /* VKSdk.framework */,
+				BAE6BCD21B0B477D00EC0D8B /* VKSdkResources.bundle */,
 				BACA3B121AFA54670015EF04 /* Image Processing */,
 				BACA3B2C1AFA54670015EF04 /* Image ProcessingTests */,
 				BACA3B111AFA54670015EF04 /* Products */,
@@ -271,6 +274,7 @@
 				BA3D9BB61B0A06CC003D351D /* ex.jpeg in Resources */,
 				BA3D9BB81B0A2395003D351D /* takePhoto.png in Resources */,
 				BACA3B241AFA54670015EF04 /* LaunchScreen.xib in Resources */,
+				BAE6BCD41B0B477D00EC0D8B /* VKSdkResources.bundle in Resources */,
 				BACA3B211AFA54670015EF04 /* Images.xcassets in Resources */,
 				BA3D9BAC1B09FA52003D351D /* g+.png in Resources */,
 				BA3D9BA61B09F731003D351D /* twiter.png in Resources */,
@@ -425,9 +429,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Image Processing/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/workspace-hgkjfpyfqqbvagbhxzmxffsaxkyp/Build/Products/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -436,9 +449,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Image Processing/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/workspace-hgkjfpyfqqbvagbhxzmxffsaxkyp/Build/Products/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

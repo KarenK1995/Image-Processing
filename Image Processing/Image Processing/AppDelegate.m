@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -15,8 +16,48 @@
 @implementation AppDelegate
 
 
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    [VKSdk processOpenURL:url fromApplication:sourceApplication];
+    return YES;
+}
+
+- (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError {
+    
+}
+- (void)vkSdkTokenHasExpired:(VKAccessToken *)expiredToken {
+    
+}
+- (void)vkSdkUserDeniedAccess:(VKError *)authorizationError {
+    
+}
+- (void)vkSdkShouldPresentViewController:(UIViewController *)controller {
+    
+}
+- (void)vkSdkReceivedNewToken:(VKAccessToken *)newToken {
+    
+}
+
+- (void)vkSdkAcceptedUserToken:(VKAccessToken *)token {
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    
+}
+
+
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [VKSdk initializeWithDelegate:self andAppId:@"4923764"];
+    if ([VKSdk wakeUpSession])
+    {
+        //Start working
+    }
+    
     return YES;
 }
 
