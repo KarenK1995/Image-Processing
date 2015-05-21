@@ -25,6 +25,7 @@
 - (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError {
     
 }
+
 - (void)vkSdkTokenHasExpired:(VKAccessToken *)expiredToken {
     
 }
@@ -51,13 +52,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
     [VKSdk initializeWithDelegate:self andAppId:@"4923764"];
-    if ([VKSdk wakeUpSession])
-    {
+    if ([VKSdk wakeUpSession]) {
         //Start working
     }
-    
     return YES;
 }
 

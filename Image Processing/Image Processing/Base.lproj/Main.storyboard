@@ -60,7 +60,7 @@
                                     <constraint firstItem="9xW-Sy-cGg" firstAttribute="leading" secondItem="hWX-Tg-wAw" secondAttribute="trailing" multiplier="510/600" id="zoV-qt-w3V"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5l-O8-gxu" customClass="CircleButton">
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5l-O8-gxu" customClass="CircleButton">
                                 <rect key="frame" x="410" y="3" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="DWx-J8-K4Z"/>
@@ -73,7 +73,7 @@
                                     <action selector="shareButtonAction:" destination="vt7-Cb-uzM" eventType="touchUpInside" id="3Nk-CD-eY4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blf-A6-U2U" customClass="CircleButton">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blf-A6-U2U" customClass="CircleButton">
                                 <rect key="frame" x="316" y="3" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="c8P-cK-ooe"/>
@@ -99,7 +99,7 @@
                                     <action selector="shareButtonAction:" destination="vt7-Cb-uzM" eventType="touchUpInside" id="XXI-f4-0qK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INf-uJ-Mrd" customClass="CircleButton">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INf-uJ-Mrd" customClass="CircleButton">
                                 <rect key="frame" x="128" y="3" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="6iU-V3-wde"/>
@@ -112,7 +112,7 @@
                                     <action selector="shareButtonAction:" destination="vt7-Cb-uzM" eventType="touchUpInside" id="Q9N-Qe-IvN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2Y-n4-7bd" customClass="CircleButton">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2Y-n4-7bd" customClass="CircleButton">
                                 <rect key="frame" x="30" y="3" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="72a-Vw-Iqv"/>

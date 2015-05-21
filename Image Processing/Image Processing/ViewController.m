@@ -11,7 +11,7 @@
 #import "Cropper.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <VKSdk/VKSdk.h>
-
+#import <Social/Social.h>
 
 @interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDelegate>
 
@@ -205,13 +205,26 @@
 }
 
 - (IBAction)shareButtonAction:(UIButton *)sender {
-    VKShareDialogController * shareDialog = [VKShareDialogController new];
-    shareDialog.text         = @"This post created using #vksdk #ios";
-    shareDialog.uploadImages = @[[VKUploadImage uploadImageWithImage:[UIImage imageNamed:@"img.jpg"] andParams:nil]];
-    [shareDialog setCompletionHandler:^(VKShareDialogControllerResult result) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }];
-    [self presentViewController:shareDialog animated:YES completion:nil];
+    switch (sender.tag) {
+        case 1:
+            [self VKShare];
+            break;
+        case 2:
+            
+            break;
+        case 3:
+            
+            break;
+        case 4:
+            [self twitterShare];
+            break;
+        case 5:
+            [self facebookShare];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 - (IBAction)takePhotoAction:(UIButton *)sender {
@@ -249,6 +262,64 @@
             [alert show];
         }
     }];
+}
+
+- (void)VKShare {
+    VKShareDialogController * shareDialog = [VKShareDialogController new];
+    shareDialog.uploadImages = @[[VKUploadImage uploadImageWithImage:self.bgImage.image andParams:nil]];
+    [shareDialog setCompletionHandler:^(VKShareDialogControllerResult result) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [self presentViewController:shareDialog animated:YES completion:nil];
+}
+
+- (void)twitterShare {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+        SLComposeViewController *tweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [tweet setInitialText:@"I just completed the Social.framework Tutorial by @iosdevtutorials !"];
+        [tweet addImage:self.bgImage.image];
+        [tweet setCompletionHandler:^(SLComposeViewControllerResult result) {
+             if (result == SLComposeViewControllerResultCancelled) {
+                 NSLog(@"The user cancelled.");
+             }
+             else if (result == SLComposeViewControllerResultDone) {
+                 NSLog(@"The user sent the tweet");
+             }
+         }];
+        [self presentViewController:tweet animated:YES completion:nil];
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter"
+                                                        message:@"Twitter integration is not available.  A Twitter account must be set up on your device."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+- (void)facebookShare {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        SLComposeViewController *fbShare = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        [fbShare addImage:self.bgImage.image];
+        [fbShare setCompletionHandler:^(SLComposeViewControllerResult result) {
+            if (result == SLComposeViewControllerResultCancelled) {
+                NSLog(@"The user cancelled.");
+            }
+            else if (result == SLComposeViewControllerResultDone) {
+                NSLog(@"The user sent the tweet");
+            }
+        }];
+        [self presentViewController:fbShare animated:YES completion:nil];
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Facebook"
+                                                        message:@"Facebook integration is not available.  A Facebook account must be set up on your device."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 @end

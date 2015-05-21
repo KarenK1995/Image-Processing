@@ -31,6 +31,7 @@
 		BAE8F14E1AFCE0F1003CC33C /* Cropper.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE8F14D1AFCE0F1003CC33C /* Cropper.m */; };
 		BAE8F1501AFCE792003CC33C /* crop.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BAE8F14F1AFCE792003CC33C /* crop.jpeg */; };
 		BAE9F12D1AFC8DD800E8C876 /* CircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE9F12C1AFC8DD800E8C876 /* CircleButton.m */; };
+		BAEC77781B0DEABF00E53AD7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEC77771B0DEABF00E53AD7 /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		BAE8F14F1AFCE792003CC33C /* crop.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = crop.jpeg; sourceTree = "<group>"; };
 		BAE9F12B1AFC8DD800E8C876 /* CircleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleButton.h; sourceTree = "<group>"; };
 		BAE9F12C1AFC8DD800E8C876 /* CircleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleButton.m; sourceTree = "<group>"; };
+		BAEC77771B0DEABF00E53AD7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAEC77781B0DEABF00E53AD7 /* Social.framework in Frameworks */,
 				BAE6BCD31B0B477D00EC0D8B /* VKSdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +103,7 @@
 		BACA3B071AFA54670015EF04 = {
 			isa = PBXGroup;
 			children = (
+				BAEC77771B0DEABF00E53AD7 /* Social.framework */,
 				BAE6BCD11B0B477D00EC0D8B /* VKSdk.framework */,
 				BAE6BCD21B0B477D00EC0D8B /* VKSdkResources.bundle */,
 				BACA3B121AFA54670015EF04 /* Image Processing */,
